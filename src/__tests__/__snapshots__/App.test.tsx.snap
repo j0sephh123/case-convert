@@ -1,0 +1,187 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > clears the textarea when 'Reset' button is clicked 1`] = `
+<DocumentFragment>
+  <div
+    class="p-8"
+  >
+    <h1
+      class="text-3xl font-extrabold"
+    >
+      Case Converter
+    </h1>
+    <div
+      class="flex mt-10 justify-center"
+    >
+      <textarea
+        class="textarea textarea-lg w-full max-w-5xl border-zinc-400"
+        rows="6"
+      />
+    </div>
+    <div
+      class="flex justify-between mt-3 ml-4 mr-4"
+    >
+      <div
+        class="join gap-3"
+      >
+        <button
+          class="btn btn-neutral normal-case"
+        >
+          UPPER CASE
+        </button>
+        <button
+          class="btn btn-neutral normal-case"
+        >
+          lower case
+        </button>
+      </div>
+      <button
+        class="btn"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App > transforms the textarea value to lower case when 'lower case' button is clicked 1`] = `
+<DocumentFragment>
+  <div
+    class="p-8"
+  >
+    <h1
+      class="text-3xl font-extrabold"
+    >
+      Case Converter
+    </h1>
+    <div
+      class="flex mt-10 justify-center"
+    >
+      <textarea
+        class="textarea textarea-lg w-full max-w-5xl border-zinc-400"
+        rows="6"
+      >
+        hello world
+      </textarea>
+    </div>
+    <div
+      class="flex justify-between mt-3 ml-4 mr-4"
+    >
+      <div
+        class="join gap-3"
+      >
+        <button
+          class="btn btn-neutral normal-case"
+        >
+          UPPER CASE
+        </button>
+        <button
+          class="btn btn-neutral normal-case"
+        >
+          lower case
+        </button>
+      </div>
+      <button
+        class="btn"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App > transforms the textarea value to upper case when 'UPPER CASE' button is clicked 1`] = `
+<DocumentFragment>
+  <div
+    class="p-8"
+  >
+    <h1
+      class="text-3xl font-extrabold"
+    >
+      Case Converter
+    </h1>
+    <div
+      class="flex mt-10 justify-center"
+    >
+      <textarea
+        class="textarea textarea-lg w-full max-w-5xl border-zinc-400"
+        rows="6"
+      >
+        HELLO WORLD
+      </textarea>
+    </div>
+    <div
+      class="flex justify-between mt-3 ml-4 mr-4"
+    >
+      <div
+        class="join gap-3"
+      >
+        <button
+          class="btn btn-neutral normal-case"
+        >
+          UPPER CASE
+        </button>
+        <button
+          class="btn btn-neutral normal-case"
+        >
+          lower case
+        </button>
+      </div>
+      <button
+        class="btn"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App > updates the textarea value when typing 1`] = `
+<DocumentFragment>
+  <div
+    class="p-8"
+  >
+    <h1
+      class="text-3xl font-extrabold"
+    >
+      Case Converter
+    </h1>
+    <div
+      class="flex mt-10 justify-center"
+    >
+      <textarea
+        class="textarea textarea-lg w-full max-w-5xl border-zinc-400"
+        rows="6"
+      >
+        hello world
+      </textarea>
+    </div>
+    <div
+      class="flex justify-between mt-3 ml-4 mr-4"
+    >
+      <div
+        class="join gap-3"
+      >
+        <button
+          class="btn btn-neutral normal-case"
+        >
+          UPPER CASE
+        </button>
+        <button
+          class="btn btn-neutral normal-case"
+        >
+          lower case
+        </button>
+      </div>
+      <button
+        class="btn"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
