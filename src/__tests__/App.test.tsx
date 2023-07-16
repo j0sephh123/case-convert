@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import App from "../App";
 
 describe("App", () => {
@@ -61,5 +61,36 @@ describe("App", () => {
 
     expect(nativeTextarea).toHaveValue("");
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  describe("Copy functionality", () => {
+    const mock = vi.fn();
+
+    beforeEach(() => {
+      vi.stubGlobal("navigator", {
+        clipboard: {
+          writeText: mock,
+        },
+      });
+    });
+
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it("should display tooltip on hover and copy text on click", () => {
+      const { asFragment } = render(<App />);
+
+      fireEvent.change(screen.getByRole("textbox"), {
+        target: {
+          value: "HELLO WORLD",
+        },
+      });
+
+      fireEvent.click(screen.getByTestId("CopyIcon"));
+
+      expect(mock).toHaveBeenCalledWith("HELLO WORLD");
+      expect(asFragment()).toMatchSnapshot();
+    });
   });
 });

@@ -2,6 +2,11 @@ import { useMemo, useState, useCallback } from "react";
 import { SetValue } from "./types";
 import Textarea from "./components/Textarea/Textarea";
 import * as transformers from "./transformers/transformers";
+import Copy from "./components/Copy/Copy";
+
+const copyText = (value: string) => {
+  navigator.clipboard.writeText(value);
+};
 
 export default function App() {
   const [value, dispatchSetValue] = useState("");
@@ -32,7 +37,8 @@ export default function App() {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-extrabold">Case Converter</h1>
-      <div className="flex mt-10 justify-center">
+      <div className="flex mt-10 justify-center relative">
+        <Copy onClick={() => copyText(value)} />
         <Textarea value={value} onChange={setValue} />
       </div>
       <div className="flex justify-between mt-3 ml-4 mr-4">
