@@ -6,5 +6,13 @@ However, I find some of the transformations pointless, so I will start implement
 - Vite
 - Daisy
 
-# Phase one
-Implement to upper case and to lower case. Add tests. Deploy. Publish.
+
+# Versions
+Each version has its own branch with the same name - i.e `0.0.1`
+## Completed
+- __0.0.1__ upper case, lower case, reset
+
+## In progress
+__0.0.2__ copy functionality and auto focus on textarea
+
+## Planned
