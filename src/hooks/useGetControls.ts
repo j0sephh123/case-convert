@@ -15,6 +15,14 @@ export default function useGetControls(setValue: SetValue) {
     setValue((prevValue) => transformers.toSnakeCase(prevValue));
   }, [setValue]);
 
+  const handleTransformToCamelCase = useCallback(() => {
+    setValue((prevValue) => transformers.toCamelCase(prevValue));
+  }, [setValue]);
+
+  const handleTransformToPascalCase = useCallback(() => {
+    setValue((prevValue) => transformers.toPascalCase(prevValue));
+  }, [setValue]);
+
   const controls = useMemo(
     () => [
       {
@@ -29,9 +37,19 @@ export default function useGetControls(setValue: SetValue) {
         onClick: handleTransformToSnakeCase,
         label: "snake_case",
       },
+      {
+        onClick: handleTransformToPascalCase,
+        label: "PascalCase",
+      },
+      {
+        onClick: handleTransformToCamelCase,
+        label: "camelCase",
+      },
     ],
     [
+      handleTransformToCamelCase,
       handleTransformToLowerCase,
+      handleTransformToPascalCase,
       handleTransformToSnakeCase,
       handleTransformToUpperCase,
     ]

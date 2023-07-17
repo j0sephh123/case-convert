@@ -72,6 +72,44 @@ describe("App", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
+  it("transforms the textarea value to camel case when 'camelCase' button is clicked", () => {
+    const { asFragment } = render(<App />);
+    const nativeTextarea = screen.getByRole("textbox");
+    const camelCaseButton = screen.getByText("camelCase");
+
+    fireEvent.change(nativeTextarea, {
+      target: {
+        value: mockSentence,
+      },
+    });
+
+    fireEvent.click(camelCaseButton);
+
+    expect(nativeTextarea).toHaveValue(
+      "thisIsAMockSentenceWithTenWordsExactly"
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("transforms the textarea value to PascalCase when 'PascalCase' button is clicked", () => {
+    const { asFragment } = render(<App />);
+    const nativeTextarea = screen.getByRole("textbox");
+    const pascalCaseButton = screen.getByText("PascalCase");
+
+    fireEvent.change(nativeTextarea, {
+      target: {
+        value: mockSentence,
+      },
+    });
+
+    fireEvent.click(pascalCaseButton);
+
+    expect(nativeTextarea).toHaveValue(
+      "ThisIsAMockSentenceWithTenWordsExactly"
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it("clears the textarea when 'Reset' button is clicked", () => {
     const { asFragment } = render(<App />);
     const nativeTextarea = screen.getByRole("textbox");
