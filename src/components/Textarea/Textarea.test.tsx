@@ -4,8 +4,8 @@ import Textarea from "./Textarea";
 
 describe("Textarea", () => {
   it("set its value to the value prop, on typing calls onChange callback with the correct value", async () => {
-    const mock = vi.fn();
-    const { asFragment } = render(<Textarea value="1" onChange={mock} />);
+    const spy = vi.fn();
+    const { asFragment } = render(<Textarea value="1" onChange={spy} />);
     const nativeTextarea = screen.getByRole("textbox");
 
     expect(nativeTextarea).toHaveValue("1");
@@ -14,7 +14,7 @@ describe("Textarea", () => {
       target: { value: "2" },
     });
 
-    expect(mock).toHaveBeenCalledWith("2");
+    expect(spy).toHaveBeenCalledWith("2");
     expect(asFragment()).toMatchSnapshot();
   });
 });

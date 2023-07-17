@@ -5,8 +5,8 @@ import Copy from "./Copy";
 describe("Copy", () => {
   it("works", async () => {
     vi.useFakeTimers();
-    const mock = vi.fn();
-    const { asFragment } = render(<Copy onClick={mock} />);
+    const spy = vi.fn();
+    const { asFragment } = render(<Copy onClick={spy} />);
     const button = screen.getByRole("button");
 
     expect(screen.getByTestId("CopyIcon")).toBeInTheDocument();
@@ -16,6 +16,7 @@ describe("Copy", () => {
       fireEvent.click(button);
     });
 
+    expect(spy).toHaveBeenCalled();
     expect(screen.getByTestId("CopiedIcon")).toBeInTheDocument();
     expect(button).toHaveClass("btn-disabled");
 
