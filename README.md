@@ -6,6 +6,7 @@ However, I find some of the transformations pointless, so I will start implement
 # Stack
 
 - Vite
+- Vitest 
 - Daisy
 
 # Versions
@@ -18,7 +19,6 @@ Each version has its own branch with the same name - i.e `0.0.1`
 - **0.0.2** copy functionality and auto focus on textarea
 
 ## Ideas
-
-- **0.0.3**
+- **0.0.3** - add snake case functionality
 
 ## Planned
