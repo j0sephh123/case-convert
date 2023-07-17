@@ -1,8 +1,9 @@
-import { useMemo, useState, useCallback } from "react";
+import { useState } from "react";
 import { SetValue } from "./types";
 import Textarea from "./components/Textarea/Textarea";
-import * as transformers from "./transformers/transformers";
+
 import Copy from "./components/Copy/Copy";
+import useGetControls from "./hooks/useGetControls";
 
 const copyText = (value: string) => {
   navigator.clipboard.writeText(value);
@@ -11,28 +12,7 @@ const copyText = (value: string) => {
 export default function App() {
   const [value, dispatchSetValue] = useState("");
   const setValue: SetValue = (newValue) => dispatchSetValue(newValue);
-
-  const handleTransformToUpperCase = useCallback(() => {
-    setValue((prevValue) => transformers.toUpperCase(prevValue));
-  }, []);
-
-  const handleTransformToLowerCase = useCallback(() => {
-    setValue((prevValue) => transformers.toLowerCase(prevValue));
-  }, []);
-
-  const transformersList = useMemo(
-    () => [
-      {
-        label: "UPPER CASE",
-        onClick: handleTransformToUpperCase,
-      },
-      {
-        onClick: handleTransformToLowerCase,
-        label: "lower case",
-      },
-    ],
-    [handleTransformToLowerCase, handleTransformToUpperCase]
-  );
+  const controls = useGetControls(setValue);
 
   return (
     <div className="p-8">
@@ -43,7 +23,7 @@ export default function App() {
       </div>
       <div className="flex justify-between mt-3 ml-4 mr-4">
         <div className="join gap-3">
-          {transformersList.map(({ label, onClick }) => (
+          {controls.map(({ label, onClick }) => (
             <button
               key={label}
               onClick={onClick}
