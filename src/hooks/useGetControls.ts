@@ -11,6 +11,10 @@ export default function useGetControls(setValue: SetValue) {
     setValue((prevValue) => transformers.toLowerCase(prevValue));
   }, [setValue]);
 
+  const handleTransformToSnakeCase = useCallback(() => {
+    setValue((prevValue) => transformers.toSnakeCase(prevValue));
+  }, [setValue]);
+
   const controls = useMemo(
     () => [
       {
@@ -21,8 +25,16 @@ export default function useGetControls(setValue: SetValue) {
         onClick: handleTransformToLowerCase,
         label: "lower case",
       },
+      {
+        onClick: handleTransformToSnakeCase,
+        label: "snake_case",
+      },
     ],
-    [handleTransformToLowerCase, handleTransformToUpperCase]
+    [
+      handleTransformToLowerCase,
+      handleTransformToSnakeCase,
+      handleTransformToUpperCase,
+    ]
   );
 
   return controls;

@@ -7,14 +7,11 @@ describe("useGetControls", () => {
     const setValueMock = vi.fn();
 
     const {
-      result: {
-        current: [{ onClick: onClick1 }, { onClick: onClick2 }],
-      },
+      result: { current: controls },
     } = renderHook(() => useGetControls(setValueMock));
 
-    onClick1();
-    onClick2();
+    controls.forEach((control) => control.onClick());
 
-    expect(setValueMock).toHaveBeenCalledTimes(2);
+    expect(setValueMock).toHaveBeenCalledTimes(controls.length);
   });
 });

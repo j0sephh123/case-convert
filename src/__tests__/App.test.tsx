@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import App from "../App";
+import { mockSentence } from "../mocks/variousMocks";
 
 describe("App", () => {
   it("updates the textarea value when typing", () => {
@@ -49,6 +50,25 @@ describe("App", () => {
     fireEvent.click(lowerCaseButton);
 
     expect(nativeTextarea).toHaveValue("hello world");
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("transforms the textarea value to snake case when 'snake_case' button is clicked", () => {
+    const { asFragment } = render(<App />);
+    const nativeTextarea = screen.getByRole("textbox");
+    const snakeCaseButton = screen.getByText("snake_case");
+
+    fireEvent.change(nativeTextarea, {
+      target: {
+        value: mockSentence,
+      },
+    });
+
+    fireEvent.click(snakeCaseButton);
+
+    expect(nativeTextarea).toHaveValue(
+      "this_is_a_mock_sentence_with_ten_words_exactly"
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
